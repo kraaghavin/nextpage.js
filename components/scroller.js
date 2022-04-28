@@ -15,7 +15,7 @@ export default function Layout({ children, ...rest }) {
     const el = $content.current;
 
     scrollbar.current = SmoothScrollbar.init(el, {
-      // renderByPixels: false,
+      renderByPixels: true,
       damping: 0.015,
       delegateTo: document
     });
