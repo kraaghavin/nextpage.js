@@ -15,6 +15,7 @@
     "gsap": "^3.10.4",
     "html-loader": "^3.1.0",
     "next": "12.1.5",
+    "next-page-transitions": "^1.0.0-beta.2",
     "normalize-css": "^2.3.1",
     "normalize.css": "^8.0.1",
     "react": "18.1.0",
