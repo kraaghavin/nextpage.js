@@ -6,7 +6,6 @@ import { useState } from "react";
 import Navigation from "../components/Navigation";
 import { animations } from "../lib/animations";
 import "../styles/globals.css";
-import "../styles/slider.scss";
 import CursorProvider from "../components/cursorProvider";
 import "../styles/styles.css";
 
