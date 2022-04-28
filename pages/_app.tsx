@@ -8,6 +8,7 @@ import { animations } from "../lib/animations";
 import "../styles/globals.css";
 import CursorProvider from "../components/cursorProvider";
 import "../styles/styles.css";
+import '../components/Carousel/Carousel.css'
 
 const pages = [
   { href: "/", name: "Index" },

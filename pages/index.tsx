@@ -1,4 +1,5 @@
 import Scroller from '../components/scroller';
+
 export default function Index() {
   return (
     <Scroller>

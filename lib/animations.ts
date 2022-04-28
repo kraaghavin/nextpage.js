@@ -3,28 +3,26 @@ const slideRight = {
   variants: {
     initial: {
       opacity: 0,
-      left: "-100%",
-      scale: 1,
-      delay: 3,
-      duration: 2,
-      ease: [0.075, 0.82, 0.165, 1],
+      bottom: "-10%",
+      scale: 0.8,
+      // delay: 0.5,
+      ease: [0.1, 0.82, 0.165, 0.11],
 
     },
     animate: {
-      opacity: 1,
-      left: 0,
+      opacity: 0.6,
+      bottom: 0,
       scale: 1
     },
     exit: {
       opacity: 0,
-      left: "100%",
-      scale: 1,
-      delay: 3
-
+      left: "20%",
+      scale: 0.8,
+      // delay: 0.5
     }
   },
   transition: {
-    duration: 2.5
+    duration: 2
   }
 };
 
