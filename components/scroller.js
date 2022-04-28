@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react';
 import SmoothScrollbar from 'smooth-scrollbar';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import Scroller from '../components/scroller';
 
 export default function Layout({ children, ...rest }) {
   let $content = useRef();
@@ -16,7 +15,7 @@ export default function Layout({ children, ...rest }) {
 
     scrollbar.current = SmoothScrollbar.init(el, {
       renderByPixels: true,
-      damping: 0.015,
+      damping: 0.01,
       delegateTo: document
     });
 
