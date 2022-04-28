@@ -1,9 +1,9 @@
 import Scroller from '../components/scroller';
-export default function Index() {
+export default function PageOne() {
   return (
     <Scroller>
-    <div className="page page-index">
-      <h1>Index</h1>
+    <div className="page page-four">
+      <h1>One</h1>
     </div>
     </Scroller>
   );

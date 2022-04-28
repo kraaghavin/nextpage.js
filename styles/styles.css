@@ -1,0 +1,80 @@
+html,
+html * {
+  cursor: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.movable {
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.3);
+  position: absolute;
+  z-index: 999999999;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border-color: black;
+  pointer-events: none;
+  /* transition: 3s; */
+}
+
+.movable.active {
+  background: rgba(255, 0, 0, 0.5);
+  border-radius: 50%;
+  border-color: black;
+  transform: translate(-80%, -80%);
+ 
+}
+
+.movable.active:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.movable.cursor-pointer:after {
+  content: "!";
+}
+
+.movable.cursor-right:after {
+  content: ">";
+}
+
+.movable.cursor-left:after {
+  content: "<";
+}
+
+.sides {
+  position: relative;
+  background: lightblue;
+}
+
+.side-right,
+.side-left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: transparent;
+  border: 0;
+  appearance: none;
+}
+
+.side-right {
+  right: 0;
+}
+.side-left {
+  left: 0;
+}
