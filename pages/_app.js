@@ -1,5 +1,5 @@
 import { AnimatePresence, domAnimation, LazyMotion, m } from "framer-motion";
-import type { AppProps } from "next/app";
+import { AppProps } from "next/app";
 // import "normalize.css"
 import React from "react";
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { animations } from "../lib/animations";
 import "../styles/globals.css";
 import CursorProvider from "../components/cursorProvider";
 import "../styles/styles.css";
+import "../styles/nav.css";
 import '../components/Carousel/Carousel.css'
 
 const pages = [
@@ -18,7 +19,7 @@ const pages = [
   { href: "/page-four", name: "Four" },
 ];
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps, router }) {
   const startIndex = 0;
   const [animation, setAnimation] = useState(animations[startIndex]);
   const [exitBefore, setExitBefore] = useState(false);
