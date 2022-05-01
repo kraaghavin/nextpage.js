@@ -36,7 +36,7 @@ const handleClick = () => setClick(!click);
 useEffect(() => {
   var menuBar = gsap.timeline();
   var menuToggle = document.getElementById("menuToggle");
-  
+  var tl = gsap.timeline({ paused: true });
   menuBar.to(
     bar1.current,
     0.5,
@@ -71,7 +71,6 @@ useEffect(() => {
   menuBar.reverse();
 
   
-  var tl = gsap.timeline({ paused: true });
 
   tl.to(fullpagemenu.current, {
     duration: 0,
@@ -146,7 +145,7 @@ useEffect(() => {
                 viewBox="0 0 12 10"
                 className="hamburger"
                 clicked={click}
-                // ref={hamburger}
+                ref={hamburger}
                 height="40px"
                 width="40px"
               >
