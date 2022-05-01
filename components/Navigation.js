@@ -107,7 +107,7 @@ export default function Navigation({ pages }) {
       tl.reversed(!tl.reversed());
     });
   }, [click]);
-
+ 
   return (
     <div className="navigation" onClick={handleClick}>
       <header>
