@@ -54,21 +54,12 @@ const Icon = styled.span`
 
 export default function Hamburger() {
   
-const [click, setClick] = useState(true);
+const [click, setClick] = useState(false);
 const handleClick = () => setClick(!click);
   
   return (
     <>
         <MenuLabel htmlFor="navi-toggle" onClick={handleClick}>
-            {/* <button className="menu-toggle" id="menuToggle" onClick={() => Toggle()}>
-            
-            <svg viewBox="0 0 12 10" className="hamburger" height="40px" width="40px">
-              <path d="M10,2 L2,2" className="bar-1"></path>
-              <path d="M2,5 L10,5" className="bar-2"></path>
-              <path d="M10,8 L2,8" className="bar-3"></path>
-
-            </svg>
-          </button>  */}
                 <Icon clicked={click}>&nbsp;</Icon>
         </MenuLabel>
     </>

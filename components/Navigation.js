@@ -1,8 +1,8 @@
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import { CSSTransition } from "react-transition-group";
+// import { CSSTransition } from "react-transition-group";
+// import Hamburger from "./Hamburger";
 import { useEffect, useState, useRef } from "react";
-import Hamburger from "./Hamburger";
 import { gsap, Power2 } from "gsap";
 
 export default function Navigation({ pages }) {
@@ -10,7 +10,7 @@ export default function Navigation({ pages }) {
 
   const header = useRef();
   const headerrow = useRef();
-  const menutoggle = useRef();
+  const menuToggle = useRef();
   const hamburger = useRef();
   const bar1 = useRef();
   const bar2 = useRef();
@@ -22,119 +22,98 @@ export default function Navigation({ pages }) {
   const headernavfooter = useRef();
   const sociallinks = useRef();
 
-  //experiment with on click
-  const [click, setClick] = useState(true);
-  const handleClick = () => setClick(!click);
+  // //experiment with on click
+  // const [click, setClick] = useState(true);
+  // const handleClick = () => setClick(!click);
 
   //gsap
 
   useEffect(() => {
-    var menuBar = gsap.timeline();
     var menuToggle = document.getElementById("menuToggle");
-    var tl = gsap.timeline({ paused: true });
-    menuBar.to(
-      bar1.current,
-      0.5,
-      {
-        attr: { d: "M8,2 L2,8" },
-        x: 1,
-        ease: Power2.easeInOut,
-      },
-      "start"
-    );
 
-    menuBar.to(
-      bar2.current,
-      0.5,
-      {
-        autoAlpha: 0,
-      },
-      "start"
-    );
+var menuBar = gsap.timeline();
 
-    menuBar.to(
-      bar3.current,
-      0.5,
-      {
-        attr: { d: "M8,8 L2,2" },
-        x: 1,
-        ease: Power2.easeInOut,
-      },
-      "start"
-    );
+menuBar.to('.bar-1', 0.5,{
+	attr:{d: "M8,2 L2,8"},
+	x:1,
+	ease: Power2.easeInOut
+}, 'start')
 
-    menuBar.reverse();
+menuBar.to('.bar-2', 0.5,{
+	autoAlpha: 0
+}, 'start')
 
-    tl.to(fullpagemenu.current, {
-      duration: 0,
-      display: "block",
-      ease: "Expo.easeInOut",
-    });
+menuBar.to('.bar-3', 0.5,{
+	attr:{d: "M8,8 L2,2"},
+	x:1,
+	ease: Power2.easeInOut
+}, 'start')
 
-    tl.from(menubg.current, {
-      duration: 1,
-      x: "100%",
-      stagger: 0.1,
-      ease: "Expo.easeInOut",
-    });
+menuBar.reverse();
 
-    tl.from(
-      mainmenu.current,
-      {
-        duration: 1.5,
-        y: "100%",
-        stagger: 0.2,
-        ease: "Expo.easeInOut",
-      },
-      "-=0.5"
-    );
 
-    tl.from(
-      sociallinks.current,
-      {
-        duration: 1,
-        y: "-100%",
-        opacity: 0,
-        stagger: 0.1,
-        ease: "Expo.easeInOut",
-      },
-      "-=0.5"
-    );
+var tl = gsap.timeline({ paused: true});
 
-    tl.reverse();
-    menuToggle.addEventListener("click", function () {
-      menuBar.reversed(!menuBar.reversed());
-      tl.reversed(!tl.reversed());
-    });
-  }, [click]);
- 
+tl.to('.fullpage-menu', {
+	duration:0,
+	display: "block",
+	ease: 'Expo.easeInOut',
+});
+
+tl.from('.menu-bg span', {
+	duration:1,
+	x:"100%",
+	stagger: 0.1,
+	ease: 'Expo.easeInOut'
+});
+
+tl.from('.main-menu li a', {
+	duration:1.5,
+	y:"100%",
+	stagger: 0.2,
+	ease: 'Expo.easeInOut'
+} , "-=0.5");
+
+tl.from('.social-links li', {
+	duration:1,
+	y:"-100%",
+	opacity:0,
+	stagger: 0.1,
+	ease: 'Expo.easeInOut'
+} , "-=0.5");
+
+tl.reverse();
+
+menuToggle.addEventListener('click', function(){
+	menuBar.reversed(!menuBar.reversed());
+	tl.reversed(!tl.reversed());
+});
+  })
+
   return (
-    <div className="navigation" onClick={handleClick}>
+    <div className="navigation" /* onClick={handleClick}*/>
       <header>
         <div className="header" ref={header}>
           <div className="header-row" ref={headerrow}>
             <Link href="#">asdf</Link>
-          </div>
 
-          {/* ////////have to apply above gsap to this following menu-toggle */}
+            {/* ////////have to apply above gsap to this following menu-toggle */}
 
-          <button className="menu-toggle" id="menuToggle">
-            <svg
-              viewBox="0 0 12 10"
-              className="hamburger"
-              clicked={click}
-              ref={hamburger}
-              height="40px"
-              width="40px"
-            >
-              <path d="M10,2 L2,2" className="bar-1" ref={bar1}></path>
-              <path d="M2,5 L10,5" className="bar-2" ref={bar2}></path>
-              <path d="M10,8 L2,8" className="bar-3" ref={bar3}></path>
-            </svg>
-          </button>
-          {/* <Hamburger /> */}
-        </div>
-      </header>
+            <button className="menu-toggle" id="menuToggle" ref={menuToggle}>
+              <svg
+                viewBox="0 0 12 10"
+                className="hamburger"
+                // clicked={click}
+                ref={hamburger}
+                height="40px"
+                width="40px"
+              >
+                <path d="M10,2 L2,2" className="bar-1" ref={bar1}></path>
+                <path d="M2,5 L10,5" className="bar-2" ref={bar2}></path>
+                <path d="M10,8 L2,8" className="bar-3" ref={bar3}></path>
+              </svg>
+            </button>
+            {/* <Hamburger /> */}
 
       <section className="fullpage-menu" ref={fullpagemenu}>
         <div className="fullpage-menu-inner" ref={fullpagemenuinner}>
@@ -180,6 +159,9 @@ export default function Navigation({ pages }) {
           </div>
         </div>
       </section>
+          </div>
+        </div>
+      </header>
     </div>
   );
 }

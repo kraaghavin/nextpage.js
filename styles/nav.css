@@ -52,6 +52,7 @@ header{
     background: transparent;
     border: none;
     cursor: pointer;
+    z-index: 100;
 }
 
 .hamburger path{
